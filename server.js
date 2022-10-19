@@ -1,0 +1,99 @@
+// 1. Crear el objeto express
+const express = require('express')
+
+// 2. Citar las dependencias necesarias
+const dotenv = require('dotenv')
+const colors = require('colors')
+const listEndpoint = require('express-list-endpoints')
+const { json } = require('express/lib/response')
+const { request } = require('express')
+
+// Los componentes de ruta
+const bootcampRoutes = require('./routes/BootcampRoutes')
+
+// 3. Establecer archivo de configuración
+dotenv.config({
+    path: './config/config.env'
+})
+//console.log(process.env.PORT)
+
+// 4. Crear el objeto aplication para el servidor de desarrollo
+const app = express()
+
+// Rutas de proyecto
+app.use('/api/v1/bootcamps', bootcampRoutes)
+
+//Endponit de aplicación
+app.get('/', (request, response) => {
+    response
+        .status(200)
+        .json({
+            "success": true,
+            "data": "request exitosa"
+        })
+})
+
+// Endpointss de dominio
+// Endpoint bootcamp
+// Listar todos los bootcamps
+app.get('/api/v1/bootcamps', (req, res) => {
+    res
+        .status(200)
+        .json({
+            "success": true,
+            "data": "Aquí van a salir todos los bootcamps"
+        })
+})
+
+// Listar bootcamp por id
+app.get('/api/v1/bootcamps/:id', (req, res) => {
+    console.log(req.params.id)
+    res
+        .status(200)
+        .json({
+            "success": true,
+            "data": `Aquí va a salir el bootcamp cuyo id es ${req.params.id}`
+        })
+})
+
+// Actualizar bootcamp por id
+app.put('/api/v1/bootcamps/:id', (req, res) => {
+    console.log(req.params.id)
+    res
+        .status(200)
+        .json({
+            "success": true,
+            "data": `Aquí va a actualizarse el bootcamp cuyo id es ${req.params.id}`
+        })
+})
+
+// Eliminar bootcamp por id
+app.delete('/api/v1/bootcamps/:id', (req, res) => {
+    console.log(req.params.id)
+    res
+        .status(200)
+        .json({
+            "success": true,
+            "data": `Aquí va a eliminarse el bootcamp cuyo id es ${req.params.id}`
+        })
+})
+
+// Crear nuevo bootcamp
+app.post('/api/v1/bootcamps', (req, res) => {
+    res
+        .status(200)
+        .json({
+            "success": true,
+            "data": "Aquí vamos a registrar bootcamp"
+        })
+})
+
+// Imprimir la lista de endpoints válidas en elproyecto
+console.log(listEndpoint(app))
+
+// Ejecutar el servidor de desarrollo
+// Parámetros:
+// Puerto de escucha - listen 
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor activo en puerto 5000`.bgWhite.blue)
+})
