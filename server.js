@@ -10,6 +10,7 @@ const { request } = require('express')
 
 // Los componentes de ruta
 const bootcampRoutes = require('./routes/BootcampRoutes')
+const course
 
 // 3. Establecer archivo de configuración
 dotenv.config({
