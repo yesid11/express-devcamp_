@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "16f573ba-13b0-4a8b-8ba8-4cee1d1c2533",
+		"_postman_id": "2f90e037-dcae-4adf-a3df-71ef98498efc",
 		"name": "express-devcamp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -52,7 +52,7 @@
 					"response": []
 				},
 				{
-					"name": "Eliminar bootcamp por id Copy",
+					"name": "Eliminar bootcamp por id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -165,7 +165,7 @@
 					"response": []
 				},
 				{
-					"name": "Eliminar course por id Copy",
+					"name": "Eliminar course por id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -210,6 +210,119 @@
 				},
 				{
 					"name": "Crear course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/bootcamps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"bootcamps"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "Traer todas las reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/bootcamps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"bootcamps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer review por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/bootcamps/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar review por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/bootcamps/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar review por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/bootcamps/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"bootcamps",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear review",
 					"request": {
 						"method": "POST",
 						"header": [],

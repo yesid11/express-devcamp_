@@ -11,6 +11,7 @@ const { request } = require('express')
 // Los componentes de ruta
 const bootcampRoutes = require('./routes/BootcampRoutes')
 const courseRoutes = require('./routes/CourseRoutes')
+const reviewRoutes = require('./routes/ReviewRoutes')
 
 // 3. Establecer archivo de configuración
 dotenv.config({
@@ -24,6 +25,7 @@ const app = express()
 // Rutas de proyecto
 app.use('/api/v1/bootcamps', bootcampRoutes)
 app.use('/api/v1/courses', courseRoutes)
+app.use('/api/v1/reviews', reviewRoutes)
 
 //Endponit de aplicación
 app.get('/', (request, response) => {
