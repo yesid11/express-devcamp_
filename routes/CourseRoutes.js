@@ -1,60 +1,31 @@
-const { Router } = require('express')
 const express = require('express')
+const {
+
+    getAllCourses,
+    getSingleCourse,
+    updateCourse,
+    deleteCourse,
+    createCourse
+} = require('../controllers/CourseController')
+
 
 // Definir objeto de ruteo
 const router = express.Router()
 
-// Listar todos los courses
-router.get('/', (req, res) => {
-    res
-        .status(200)
-        .json({
-            "success": true,
-            "data": "Aquí van a salir todos los courses"
-        })
-})
 
-// Listar course por id
-router.get('/:id', (req, res) => {
-    console.log(req.params.id)
-    res
-        .status(200)
-        .json({
-            "success": true,
-            "data": `Aquí va a salir el course cuyo id es ${req.params.id}`
-        })
-})
+//crear rutas sin parametro
 
-// Actualizar course por id
-router.put('/:id', (req, res) => {
-    console.log(req.params.id)
-    res
-        .status(200)
-        .json({
-            "success": true,
-            "data": `Aquí va a actualizarse el course cuyo id es ${req.params.id}`
-        })
-})
+router.route('/')
 
-// Eliminar course por id
-router.delete('/:id', (req, res) => {
-    console.log(req.params.id)
-    res
-        .status(200)
-        .json({
-            "success": true,
-            "data": `Aquí va a eliminarse el course cuyo id es ${req.params.id}`
-        })
-})
+        .get(getAllCourses)
+        .post(createCourse)
 
-// Crear nuevo course
-router.post('/', (req, res) => {
-    res
-        .status(200)
-        .json({
-            "success": true,
-            "data": "Aquí vamos a registrar course"
-        })
-})
 
+router.route('/:id')
+
+    .get(getSingleCourse)
+    .put(updateCourse)
+    .delete(deleteCourse)
+
+    
 module.exports = router
