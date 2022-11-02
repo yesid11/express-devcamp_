@@ -5,7 +5,7 @@ exports.getAllCourses = (req, res) => {
         .status(200)
         .json({
             "success": true,
-            "data": "Aqqui van a salir los cursos"
+            "data": "Aqui van a salir los cursos"
         })
 }
 
