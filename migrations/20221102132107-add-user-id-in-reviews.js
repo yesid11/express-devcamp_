@@ -27,6 +27,6 @@ module.exports = {
      //parametros : 
      //La tabla de donde vas a remover 
      // la columna que vas a eliminar
-     await queryInterface.removeColumn('')
+     await queryInterface.removeColumn('reviews', 'user_id')
    }
 };

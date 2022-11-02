@@ -14,7 +14,7 @@ module.exports = {
                                     {
                                        type : Sequelize.INTEGER,
                                         references:{
-                                        model:'user',
+                                        model:'users',
                                         key: 'id'
                                       }, 
                                       onUpdate:'CASCADE',
@@ -27,6 +27,6 @@ module.exports = {
     //parametros : 
     //La tabla de donde vas a remover 
     // la columna que vas a eliminar
-    await queryInterface.removeColumn('')
+    await queryInterface.removeColumn('bootcamps', 'user_id')
   }
 };
