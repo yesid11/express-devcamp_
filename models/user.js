@@ -14,10 +14,58 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-  }, {
+    username:{ 
+            type:DataTypes.STRING,
+            allowNull:false,
+            validate:{
+              unique(value) {
+                return User.findOne({where:{username:value}})
+                  .then((username) => {
+                    if (username) {
+                      throw new Error('Ya existe un campo con ese username');
+                    }
+                  })
+              },
+              isAlpha: {
+                args: true,
+                msg : 'username no valido, no puede contener caracteres alfabeticos'
+              },
+              notNull:{
+                args: true,
+                msg: 'Debe estar relleno el campo de username'
+
+              },
+              notEmpty:{
+                args: true,
+                msg: 'el campo debe tener contenido'
+              }
+            }
+          },
+         
+    email:{
+      type:DataTypes.STRING,
+      allowNull:true,
+      validate:{
+        isEmail:{
+        args:true,
+        msg: "email no valido"
+      }
+      }
+    },
+    password:{
+      
+      type:DataTypes.STRING,
+      allowNull:true,
+      validate:{
+        len:{
+          args:[5,10],
+          msg:"password no valida"
+        }
+      }
+    },
+  
+  },
+    {
     sequelize,
     modelName: 'User',
     timestamps: false
