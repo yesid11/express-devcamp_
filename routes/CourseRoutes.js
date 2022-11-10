@@ -1,6 +1,5 @@
 const express = require('express')
 const {
-
     getAllCourses,
     getSingleCourse,
     updateCourse,
@@ -10,7 +9,7 @@ const {
 
 
 // Definir objeto de ruteo
-const router = express.Router()
+const router=express.Router()
 
 
 //crear rutas sin parametro

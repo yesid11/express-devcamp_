@@ -14,12 +14,42 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   reviews.init({
-    title: DataTypes.STRING,
-    text: DataTypes.STRING,
-    rating: DataTypes.INTEGER
+    title:{
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo no puede estar vacio"
+        }
+      }
+    },
+    
+    text:{
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"este campo no puede estar vacio"
+        }
+      }
+    }, 
+    rating:{
+      type:DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo no puede estar vacio"
+        }
+      }
+
+    } 
   }, {
     sequelize,
     modelName: 'reviews',
+    timestamps: false
   });
   return reviews;
 };

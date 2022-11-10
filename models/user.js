@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
               },
               isAlpha: {
                 args: true,
-                msg : 'username no valido, no puede contener caracteres alfabeticos'
+                msg : 'username no valido, no puede contener caracteres numericos'
               },
               notNull:{
                 args: true,
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
          
     email:{
       type:DataTypes.STRING,
-      allowNull:true,
+      allowNull:false,
       validate:{
         isEmail:{
         args:true,
@@ -55,7 +55,6 @@ module.exports = (sequelize, DataTypes) => {
     password:{
       
       type:DataTypes.STRING,
-      allowNull:true,
       validate:{
         len:{
           args:[5,10],

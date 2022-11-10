@@ -14,14 +14,73 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   courses.init({
-    title: DataTypes.STRING,
-    description: DataTypes.STRING,
-    weeks: DataTypes.INTEGER,
-    enroll_cost: DataTypes.FLOAT,
-    minimum_skill: DataTypes.FLOAT
+    title:{
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo no puede estar vacio"
+        }
+      }
+    },
+    
+    description:{
+
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo no puede estar vacio"
+        }
+      }
+
+    }, 
+    weeks:{
+      type:DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo debe contener información"
+        },
+        max:20,
+        isInt:{
+          args:true,
+          msg:"Este campo solo debe tener numeros"
+        },
+      }
+    },
+    enroll_cost:{
+      type:DataTypes.FLOAT,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args:true,
+          msg:"Este campo no puede ser vacío"
+        },
+        isFloat:{
+          args:true,
+          msg:"Este campo solo debe rellenarse con numeros"
+        }
+      }
+    },
+
+    minimum_skill:{
+      type:DataTypes.FLOAT,
+      allowNull:false,
+      validate:{
+        notNull:{
+          args: true,
+          msg:"Este campo no puede estar vacío"
+        }
+      }
+    } 
   }, {
     sequelize,
-    modelName: 'courses',
+    modelName:'courses',
+    timestamps:false
   });
   return courses;
 };
